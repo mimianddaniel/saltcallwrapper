@@ -16,4 +16,11 @@ a couple of redis boxes with firewall holes on 6369, obviously this can be chang
 reactor setup 
 module that returns target matched minions.
 
+eg:
+
+sudo saltremotecmd.py -S compound -T webapp* -N 'rpminfo' -F run -E 'bash'
+should return in txt otherwise json as provided in arguement
+
+In my environment, it ususaly runs anywhere between 13 secs - 48 secs for targetting against ~1000.
+
 
