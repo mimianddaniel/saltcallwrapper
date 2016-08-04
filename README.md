@@ -12,20 +12,20 @@ With async operation like reactor, i had no way of knowing whether I have gotten
 The solution i came up with was to use redis returner and have the minions to pull the returns from other minions, which would alleviate overwhelming returns from the minions. By using reactor, I am not holding onto a worker thread to process my event but have it process in a queue which would handle more requests in reasonable matter without exhasuing all the threads on the saltmaster.
 
 ##Install
-saltcallwrapper.py is a module and should be avail from where you compiled your Salt python with.
-salt_wrapper.py is just python script that calls the lib.
-sls is for placing it on the master for reactor
+- saltcallwrapper.py is a module and should be avail from where you compiled your Salt python with. 
+- salt_wrapper.py is just python script that calls the lib. 
+- sls is for placing it on the master for reactor. 
 
 ##Requirement
 a couple of redis boxes with firewall holes on 6369, obviously this can be changed as you wish. 
 reactor setup 
-module that returns target matched minions.
+module that returns target matched minions. 
 
 ###Example
 eg:
 
-`sudo saltremotecmd.py -S compound -T webapp* -N 'rpminfo' -F run -E 'bash'`
-should return in txt otherwise json as provided in arguement
+`sudo saltremotecmd.py -S compound -T webapp* -N 'rpminfo' -F run -E 'bash'` 
+should return in txt otherwise json as provided in arguement 
 
 In my environment, it ususaly runs anywhere between 13 secs - 48 secs for targetting against ~1000.
 
