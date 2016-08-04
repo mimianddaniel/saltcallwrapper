@@ -1,9 +1,7 @@
 # saltcallwrapper
-saltcallwrapper is a python module that allows you to send command through Salt reactor in salt architect with Syndics.
+saltcallwrapper is a python module that allows you to send command through Salt reactor in salt architect with Syndics and be able to retrieve returns through a returner( redis in this case )
 
-The goal is to able to submit events from a minion and receive returns from targetted minions thru using returner. 
-
-If you manage large minion environments and have syndics deployed in your setup, you probably ran into issues that doesnt work as expected:
+If you manage a large minion environments and have syndics deployed in your setup, you probably ran into issues that doesnt work as expected:
 1 publish.publish : thread exhasust issue, and also requires a patch that will work in syndic environment as saltmaster wont have all the PKI of the minions hence call comes back right away without the return from the minins. 
 2. Once you have too many minions, one top saltmaster wont be able to handle all the returns, and returns gets dropped.
 
